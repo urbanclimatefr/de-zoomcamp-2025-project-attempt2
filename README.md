@@ -97,6 +97,8 @@ Before executing the pipeline, the necessary infrastructure must be provisioned.
 
 This involves creation of GCP storage, Bigquery infrasture as code
 
+[Terraform](https://github.com/urbanclimatefr/de-zoomcamp-2025-project-attempt2/blob/main/doc/iac.md)
+
 **Docker Container Creation**
 
 This involves building a local Kestra image and running Kestra and Postgres containers.
