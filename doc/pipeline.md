@@ -130,11 +130,20 @@ This task purges temporary files after processing.
 
 <img width="893" alt="image" src="https://github.com/user-attachments/assets/15c8493b-04d6-4c5a-b7d3-a0d437911069" />
 
+A table hk_heat_index_from_parameters is created.
+<img width="773" alt="image" src="https://github.com/user-attachments/assets/f2799d90-7e42-498a-9b5d-fbb37556dc02" />
+with model sql file
+<img width="804" alt="image" src="https://github.com/user-attachments/assets/535d67e2-8eb4-4963-9ee3-6e6bed361791" />
+<img width="872" alt="image" src="https://github.com/user-attachments/assets/fb8b8308-5e58-4145-b6c3-80d259c2828b" />
+<img width="557" alt="image" src="https://github.com/user-attachments/assets/5a12b8c1-e2bd-4c1d-a11d-83cef69385c6" />
 
-This performs dbt data quality checks after fetch_weather_data flow successfully ran
+
+This also performs dbt data quality checks after fetch_weather_data flow successfully ran
 
 
 <img width="1166" alt="image" src="https://github.com/user-attachments/assets/bd433acc-9662-463b-97ae-bddc66797db3" />
+
+
 
 
 
