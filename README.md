@@ -49,7 +49,9 @@ The second page of the report illustrates the time series temperature data for t
 <br>
 <img width="1181" alt="image" src="https://github.com/user-attachments/assets/e2ab7d8c-ac92-4dcf-9bff-f65a9315e794" />
 
+The third page of the report shows the Hong Kong heat index of various place in Hong Kong.
 <br>
+<img width="599" alt="image" src="https://github.com/user-attachments/assets/af22c9c6-1660-46d2-a8e1-b090b3a5ca69" />
 
 
 ## Flowchart
