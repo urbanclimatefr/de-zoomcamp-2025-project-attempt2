@@ -8,6 +8,7 @@ inputs:
     values:
       - dbt build
       - dbt debug # use when running the first time to validate DB connection
+      - dbt run --select +hk_heat_index 
 
 tasks:
   - id: sync
@@ -40,7 +41,7 @@ tasks:
     profiles: |
       default:
         outputs:
-          main:
+          dev:
             type: bigquery
             dataset: "{{kv('GCP_DATASET')}}"
             project: "{{kv('GCP_PROJECT_ID')}}"
@@ -51,7 +52,7 @@ tasks:
             threads: 16
             timeout_seconds: 300
             fixed_retries: 1
-        target: main
+        target: dev
 
   
 
