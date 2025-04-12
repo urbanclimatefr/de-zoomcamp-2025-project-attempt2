@@ -134,6 +134,7 @@ This task purges temporary files after processing.
 This performs dbt data quality checks after fetch_weather_data flow successfully ran
 
 
-<img width="1277" alt="image" src="https://github.com/user-attachments/assets/6900a2a6-b8f2-46d6-b7ec-5219e0d71640" />
+<img width="1166" alt="image" src="https://github.com/user-attachments/assets/bd433acc-9662-463b-97ae-bddc66797db3" />
+
 
 
