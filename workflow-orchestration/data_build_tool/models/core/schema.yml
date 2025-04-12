@@ -8,6 +8,11 @@ sources:
       - name: weather_data
         description: "Weather data table containing place, value, unit, and recordTime."
         columns:
+          - name: parameter
+            tests:
+              - not_null  
+
+
           - name: place
             description: "The location or place associated with the weather record."
             tests:
@@ -25,7 +30,7 @@ sources:
               - accepted_values:
                   values: ['C']
 
-          - name: recordTime
+          - name: record_time
             description: "The timestamp when the weather record was created."
             tests:
               - not_null
