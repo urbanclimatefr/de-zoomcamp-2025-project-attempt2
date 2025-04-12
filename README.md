@@ -15,6 +15,8 @@ The README content is also accessible at  [https://github.com/urbanclimatefr/de-
 
 4. Explanation on clustering and partitioning strategy of the final destination table in Bigquery was added.
 
+5. More elaboraton on the overall architecture, tech stack and what each of them does, were added.
+
 
 
 
