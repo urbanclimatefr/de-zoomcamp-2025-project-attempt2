@@ -88,6 +88,36 @@ The third page of the report shows the Hong Kong heat index of various place in 
 See [data pipelines](./doc/pipeline.md)
 
 <br>
+Overall Architecture
+- Data Ingestion Layer:- This layer handles raw data collection from various sources such as databases, APIs, streaming services, or files like CSV.
+- Tools: Kestra.
+- Purpose: Ensures raw data is securely and efficiently brought into the data platform.
+
+- Data Transformation Layer:- Transformation processes occur here, where raw data is cleaned, standardized, and structured to be useful for analysis.
+- Tools: dbt (Data Build Tool).
+- Purpose: Implements business logic (e.g., converting formats, deduplication, or aggregations).
+
+- Data Warehouse/Storage Layer:- Central repository for structured and validated data.
+- Tools: BigQuery (cloud-based)
+- Purpose: Stores clean, high-quality datasets optimized for querying and analysis.
+
+- Reporting and Analytics Layer:- Processes data from the warehouse for visualization, reporting, and advanced analytics.
+- Tools: Looker
+- Purpose: Provides actionable insights based on prepared data.
+
+
+
+Tech Stack
+Below is an elaboration of the components in each layer and their roles:
+| Component | Role/Function | 
+| BigQuery | Executes SQL-based transformations and hosts the data warehouse. | 
+| dbt (Data Build Tool) | Orchestrates and automates SQL transformations in BigQuery. | 
+| Google Cloud Storage | Temporarily stores raw data for ingestion. | 
+| Looker  | Visualizes prepared data for reporting and business intelligence. | 
+
+
+
+
 
 
 
