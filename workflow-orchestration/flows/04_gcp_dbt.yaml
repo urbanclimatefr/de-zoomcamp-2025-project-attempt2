@@ -40,7 +40,7 @@ tasks:
     profiles: |
       default:
         outputs:
-          dev:
+          main:
             type: bigquery
             dataset: "{{kv('GCP_DATASET')}}"
             project: "{{kv('GCP_PROJECT_ID')}}"
@@ -51,7 +51,7 @@ tasks:
             threads: 16
             timeout_seconds: 300
             fixed_retries: 1
-        target: dev
+        target: main
 
   
 
