@@ -24,6 +24,7 @@ The key value store is in namespaces zoomcamp.
 
 <img width="1217" alt="image" src="https://github.com/user-attachments/assets/21809b06-c4d9-4592-88f1-1b5a25fd5bc4" />
 
+The gcp_key stores the GCP credential in json format.
 
  **Set up in GCP**
 
