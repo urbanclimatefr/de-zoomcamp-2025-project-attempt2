@@ -7,17 +7,19 @@ This [repository](https://github.com/urbanclimatefr/de-zoomcamp-2025-project-att
 The README content is also accessible at  [https://github.com/urbanclimatefr/de-zoomcamp-2025-project-attempt2](https://github.com/urbanclimatefr/de-zoomcamp-2025-project-attempt2)
 
 # Key changes from first project attempt
-1. A 5 minute batch processing data pipeline with Kestra was implemented considering the suggestion from the feedback that a streaming data pipeline could be adopted with the real time API. However, it is challenging to build a real time streaming pipeline under limited time constraint.
 
-2. Both temperature and humidty data were fetched from API, transformation was done by python pandas in Kestra, considering the difficulty in using native python kestra tool to transform the json data.
+1. Infrasture as Code with Terraform was adopted.
+2. A 5 minute batch processing data pipeline with Kestra was implemented considering the suggestion from the feedback that a streaming data pipeline could be adopted with the real time API. However, it is challenging to build a real time streaming pipeline under limited time constraint.
 
-3. dbt transformation was included to handle the calculation of the Hong Kong Heat Index (inputs are temperature and humidity)
+3. Both temperature and humidty data were fetched from API, transformation was done by python pandas in Kestra, considering the difficulty in using native python kestra tool to transform the json data.
 
-4. A third page is added for the Hong Kong Heat Index.
+4. dbt transformation was included to handle the calculation of the Hong Kong Heat Index (inputs are temperature and humidity)
 
-5. Explanation on clustering and partitioning strategy of the final destination table in Bigquery was added.
+5. A third page is added for the Hong Kong Heat Index.
 
-6. More elaboraton on the overall architecture, tech stack and what each of them does, were added.
+6. Explanation on clustering and partitioning strategy of the final destination table in Bigquery was added.
+
+7. More elaboraton on the overall architecture, tech stack and what each of them does, were added.
 
 
 
