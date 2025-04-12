@@ -9,6 +9,7 @@ sources:
         description: "Weather data table containing place, value, unit, and recordTime."
         columns:
           - name: parameter
+            description: "temperature or humidity"
             tests:
               - not_null  
 
@@ -28,7 +29,7 @@ sources:
             tests:
               - not_null
               - accepted_values:
-                  values: ['C']
+                  values: ['C', 'percent']
 
           - name: record_time
             description: "The timestamp when the weather record was created."
