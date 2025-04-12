@@ -6,7 +6,7 @@ This [repository](https://github.com/urbanclimatefr/de-zoomcamp-2025-project-att
 
 The README content is also accessible at  [https://github.com/urbanclimatefr/de-zoomcamp-2025-project-attempt2](https://github.com/urbanclimatefr/de-zoomcamp-2025-project-attempt2)
 
-# Key changes from first project attempt
+# Key changes from [first project attempt](https://github.com/urbanclimatefr/de-zoomcamp-2025-project/tree/main)
 
 1. Infrasture as Code with Terraform was adopted.
 2. A 5 minute batch processing data pipeline with Kestra was implemented considering the suggestion from the feedback that a streaming data pipeline could be adopted with the real time API. However, it is challenging to build a real time streaming pipeline under limited time constraint.
