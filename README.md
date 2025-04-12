@@ -77,7 +77,7 @@ The third page of the report shows the Hong Kong heat index of various place in 
 
 <br>
 
-![data flow](./doc/flowchart.svg)
+![data flow](./doc/flowchart.png)
 
 <br>
 
