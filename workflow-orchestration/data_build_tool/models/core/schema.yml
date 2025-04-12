@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: zoomcamp
-    database: zoomcamp-project-454404
+    database: kestra-de-zoomcamp-kenneth
     schema: zoomcamp
     tables:
       - name: weather_data
