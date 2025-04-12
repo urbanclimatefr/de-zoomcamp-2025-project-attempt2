@@ -9,13 +9,15 @@ The README content is also accessible at  [https://github.com/urbanclimatefr/de-
 # Key changes from first project attempt
 1. A 5 minute batch processing data pipeline with Kestra was implemented considering the suggestion from the feedback that a streaming data pipeline could be adopted with the real time API. However, it is challenging to build a real time streaming pipeline under limited time constraint.
 
-2. dbt transformation was included to handle the calculation of the Hong Kong Heat Index (inputs are temperature and humidity)
+2. Both temperature and humidty data were fetched from API, transformation was done by python pandas in Kestra, considering the difficulty in using native python kestra tool to transform the json data.
 
-3. A third page is added for the Hong Kong Heat Index.
+3. dbt transformation was included to handle the calculation of the Hong Kong Heat Index (inputs are temperature and humidity)
 
-4. Explanation on clustering and partitioning strategy of the final destination table in Bigquery was added.
+4. A third page is added for the Hong Kong Heat Index.
 
-5. More elaboraton on the overall architecture, tech stack and what each of them does, were added.
+5. Explanation on clustering and partitioning strategy of the final destination table in Bigquery was added.
+
+6. More elaboraton on the overall architecture, tech stack and what each of them does, were added.
 
 
 
