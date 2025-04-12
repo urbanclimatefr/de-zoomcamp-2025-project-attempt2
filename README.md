@@ -108,11 +108,16 @@ Overall Architecture
 
 
 Tech Stack
-Below is an elaboration of the components in each layer and their roles:
+
+
 | Component | Role/Function | 
+
 | BigQuery | Executes SQL-based transformations and hosts the data warehouse. | 
+
 | dbt (Data Build Tool) | Orchestrates and automates SQL transformations in BigQuery. | 
+
 | Google Cloud Storage | Temporarily stores raw data for ingestion. | 
+
 | Looker  | Visualizes prepared data for reporting and business intelligence. | 
 
 
