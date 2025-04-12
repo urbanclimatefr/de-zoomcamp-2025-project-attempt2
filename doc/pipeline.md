@@ -69,10 +69,11 @@ This task fetches data by using HTTP Get method.
 
 **4. Parse json/ Transform** 
 
-This uses Python to run the transform script to change json output to csv output with desired columns: place, value, unit, recordTime.
+This uses Python to run the transform script to change json output to csv output with desired columns: parameter, place, value, unit, record_time.
 
 
-<img width="512" alt="image" src="https://github.com/user-attachments/assets/2b47e045-06e2-4918-8cdc-ad9459d132bc" />
+<img width="236" alt="image" src="https://github.com/user-attachments/assets/1b00a2ad-4b79-4db6-930a-b8969a38571b" />
+
 
 
 <br>
