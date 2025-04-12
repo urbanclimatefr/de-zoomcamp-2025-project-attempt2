@@ -22,3 +22,8 @@ source Terraform/setup.sh
 cd Terraform
 ./deployment.sh
 ```
+
+Remove resources after the project delivery
+```
+terraform destroy
+```
