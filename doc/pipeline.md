@@ -42,9 +42,9 @@ Kestra ETL workflow consists of total 9 blocks
 
 **1. Scheduling**
 
-<img width="272" alt="image" src="https://github.com/user-attachments/assets/9ae8f5ee-713b-4f69-9c7a-311e7e178c7c" />
+<img width="208" alt="image" src="https://github.com/user-attachments/assets/3470331c-32e3-42d2-bc5b-416c0eaff69b" />
 
-This schedules the workflow to run ETL job every hour.
+This schedules the workflow to run ETL job every 5 minute.
 
 
 <br>
