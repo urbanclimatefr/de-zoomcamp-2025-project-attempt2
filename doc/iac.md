@@ -20,5 +20,5 @@ source Terraform/setup.sh
 
 ```
 cd Terraform
-./deploy.sh
+./deployment.sh
 ```
