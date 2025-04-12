@@ -98,6 +98,7 @@ Before executing the pipeline, the necessary infrastructure must be provisioned.
 
 This involves building a local Kestra image and running Kestra and Postgres containers.
 
+Infrastructure Setup with Terraform
 
 [Kestra](./doc/kestra.md)
 
