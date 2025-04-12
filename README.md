@@ -81,8 +81,8 @@ The third page of the report shows the Hong Kong heat index of various place in 
 
 <br>
 
-<br>
-Overall Architecture
+**Overall Architecture**
+
 - Data Ingestion Layer:- This layer handles raw data collection from various sources such as databases, APIs, streaming services, or files like CSV.
 - Tools: Kestra.
 - Purpose: Ensures raw data is securely and efficiently brought into the data platform.
@@ -101,7 +101,8 @@ Overall Architecture
 
 
 
-Tech Stack
+
+**Tech Stack**
 
 
 | Component | Role/Function | 
