@@ -12,6 +12,13 @@ This make sures infrastructure as code (IaC) best practices, enabling well-maint
 ## Authentication
 
 Authenticate with GCP Service Account:
-'''
+```
 source Terraform/setup.sh
-'''
+```
+
+## Deploy  Infrastructure
+
+```
+cd Terraform
+./deploy.sh
+```
