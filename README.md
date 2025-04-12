@@ -10,7 +10,7 @@ The README content is also accessible at  [https://github.com/urbanclimatefr/de-
 
 ## Goal
 
-The objective of this project is to develop an end-to-end batch data pipeline that includes ingestion, processing, transformation, persistence, and visualization. Utilizing data from the Hong Kong Observatory, users can access hourly temperature data through a Looker Studio report.
+The objective of this project is to develop an end-to-end batch data pipeline that includes ingestion, processing, transformation, persistence, and visualization. Utilizing data from the Hong Kong Observatory, users can access near real time temperature and Hong Kong heat index data (updated every 5 minutes) through a Looker Studio report.
 
 <br>
 
