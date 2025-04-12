@@ -94,6 +94,7 @@ See [data pipelines](./doc/pipeline.md)
 Before executing the pipeline, the necessary infrastructure must be provisioned.
 
 **Infrasture as code with Terraform**
+
 This involves creation of GCP storage, Bigquery infrasture as code
 
 **Docker Container Creation**
