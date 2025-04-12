@@ -12,7 +12,7 @@ tasks:
     type: io.kestra.plugin.core.kv.Set
     key: GCP_PROJECT_ID
     kvType: STRING
-    value: zoomcamp-project-454404 # TODO replace with your project id
+    value: kestra-de-zoomcamp-kenneth # TODO replace with your project id
 
   - id: gcp_location
     type: io.kestra.plugin.core.kv.Set

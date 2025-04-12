@@ -12,7 +12,7 @@ inputs:
 tasks:
   - id: sync
     type: io.kestra.plugin.git.SyncNamespaceFiles
-    url: https://github.com/urbanclimatefr/de-zoomcamp-2025-project
+    url: https://github.com/urbanclimatefr/de-zoomcamp-2025-project-attempt2
     branch: main
     namespace: "{{flow.namespace}}"
     gitDirectory: workflow-orchestration/data_build_tool
@@ -52,14 +52,9 @@ tasks:
             timeout_seconds: 300
             fixed_retries: 1
         target: dev
-description: |
-  Note that you need to adjust the models/staging/schema.yml file to match your database and schema. Select and edit that Namespace File from the UI. Save and run this flow. Once https://github.com/DataTalksClub/data-engineering-zoomcamp/pull/565/files is merged, you can ignore this note as it will be dynamically adjusted based on env variables.
-  ```yaml
-  sources:
-    - name: core
-      database: zoomcamp-project
-      schema: zoomcamp
-  ```
+
+  
+
 
 triggers:
 - id: upstream_dependancy

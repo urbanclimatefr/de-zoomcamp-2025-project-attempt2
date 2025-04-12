@@ -29,31 +29,42 @@ tasks:
       - transformed_data.csv
     script: |
       import json
-      import pandas as pd
       from datetime import datetime
+      import csv
+      import pandas as pd
 
       # Load the JSON data
       with open("data.json", "r") as file:
-          json_data = json.load(file)
+          data = json.load(file)
 
-      # Extract the temperature data and recordTime
-      temperature_data = json_data.get("temperature", {})
-      record_time = temperature_data.get("recordTime", "")
-      temperature_records = temperature_data.get("data", [])
+      temp_data = data.get("temperature", {}).get("data", [])
+      temp_records = []
+      for record in temp_data:
+          temp_records.append({
+              "parameter": "temperature",
+              "place": record.get("place"),
+              "value": record.get("value"),
+              "unit": record.get("unit"),
+              "record_time": data.get("temperature", {}).get("recordTime")
+          })
 
+      # Process humidity data
+      humid_data = data.get("humidity", {}).get("data", [])
+      humid_records = []
+      for record in humid_data:
+          humid_records.append({
+              "parameter": "humidity",
+              "place": record.get("place"),
+              "value": record.get("value"),
+              "unit": record.get("unit"),
+              "record_time": data.get("humidity", {}).get("recordTime")
+          })
+
+      # Combine all records
+      all_records = temp_records + humid_records
+      df = pd.DataFrame(all_records)
       # Convert recordTime to a valid timestamp format
-      try:
-          record_time = datetime.strptime(record_time, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d %H:%M:%S")
-      except ValueError:
-          # If the format is invalid, use a default timestamp
-          record_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-      # Add recordTime to each temperature record
-      for record in temperature_records:
-          record["recordTime"] = record_time
-
-      # Create a DataFrame
-      df = pd.DataFrame(temperature_records)
 
       # Save the DataFrame to a CSV file
       df.to_csv('transformed_data.csv', index=False)
@@ -61,6 +72,7 @@ tasks:
       # Output the DataFrame as a string for logging
       print("Temperature Data with Record Time:")
       print(df)
+
 
   - id: upload_to_gcs
     type: io.kestra.plugin.gcp.gcs.Upload
@@ -73,22 +85,26 @@ tasks:
     sql: |
       CREATE TABLE IF NOT EXISTS `{{ kv('GCP_PROJECT_ID') }}.{{ kv('GCP_DATASET') }}.weather_data`
       (
-          place STRING OPTIONS (description = 'The location where the weather data was recorded.'),
-          value FLOAT64 OPTIONS (description = 'The temperature value.'),
-          unit STRING OPTIONS (description = 'The measurement unit of the temperature.'),
-          recordTime DATETIME OPTIONS (description = 'The DATETIME when the weather data was recorded.')
+        parameter STRING,
+        place STRING,
+        value INT64,
+        unit STRING,
+        record_time TIMESTAMP
+
       )
-      PARTITION BY DATE(recordTime);
+      PARTITION BY DATE(record_time)
+      CLUSTER BY parameter, place;
 
   - id: load_weather_data
     type: io.kestra.plugin.gcp.bigquery.Query
     sql: |
       CREATE OR REPLACE EXTERNAL TABLE `{{ kv('GCP_PROJECT_ID') }}.{{ render(vars.table) }}_ext`
       (
-          place STRING,
-          value FLOAT64,
-          unit STRING,
-          recordTime DATETIME ,
+        parameter STRING,
+        place STRING,
+        value INT64,
+        unit STRING,
+        record_time TIMESTAMP
       )
       OPTIONS (
           format = 'CSV',
@@ -102,10 +118,10 @@ tasks:
     sql: |
       MERGE INTO `{{ kv('GCP_PROJECT_ID') }}.{{ kv('GCP_DATASET') }}.weather_data` T
       USING `{{ kv('GCP_PROJECT_ID') }}.{{ render(vars.table) }}_ext` S
-      ON T.recordTime = S.recordTime AND T.place = S.place
+      ON T.record_time = S.record_time AND T.place = S.place
       WHEN NOT MATCHED THEN
-        INSERT (recordTime, place, value, unit)
-        VALUES (S.recordTime, S.place, S.value, S.unit);
+        INSERT (parameter, place, value, unit, record_time)
+        VALUES (S.parameter, S.place, S.value, S.unit, S.record_time);
 
   - id: purge_files
     type: io.kestra.plugin.core.storage.PurgeCurrentExecutionFiles
@@ -119,3 +135,8 @@ pluginDefaults:
       projectId: "{{ kv('GCP_PROJECT_ID') }}"
       location: "{{ kv('GCP_LOCATION') }}"
       bucket: "{{ kv('GCP_BUCKET_NAME') }}"
+
+triggers:
+  - id: schedule
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "*/5 * * * *"  # Check every 5 minutes
