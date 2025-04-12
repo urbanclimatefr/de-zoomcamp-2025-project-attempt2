@@ -99,7 +99,12 @@ This task uploads the transformed csv data output to the GCS bucket.
 
 This tasks creates weather table in Bigquery with the desired data schema.
 
-<img width="1266" alt="image" src="https://github.com/user-attachments/assets/08bd2ce2-ee63-4f45-9ec8-dae1a4f8c8a5" />
+The data table is clustered by place and parameter type, and partitioned by date.
+Clustering by place and parameter speeds up location-specific queries by physically grouping related data. Partitioning by date makes time-based queries faster by scanning only relevant date ranges. Together they reduce query costs by minimizing scanned data. This structure perfectly matches weather analysis patterns that typically filter by location and time.
+
+<img width="550" alt="image" src="https://github.com/user-attachments/assets/b7f01325-a258-4c43-972e-2aff2bc69124" />
+
+
 
 
 <br>
