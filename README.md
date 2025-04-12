@@ -81,12 +81,6 @@ The third page of the report shows the Hong Kong heat index of various place in 
 
 <br>
 
-## Data Pipelines
-
-<br>
-
-See [data pipelines](./doc/pipeline.md)
-
 <br>
 Overall Architecture
 - Data Ingestion Layer:- This layer handles raw data collection from various sources such as databases, APIs, streaming services, or files like CSV.
@@ -119,6 +113,14 @@ Tech Stack
 | Google Cloud Storage | Temporarily stores raw data for ingestion. | 
 
 | Looker  | Visualizes prepared data for reporting and business intelligence. | 
+
+## Data Pipelines
+
+<br>
+
+See [data pipelines](./doc/pipeline.md)
+
+
 
 
 
