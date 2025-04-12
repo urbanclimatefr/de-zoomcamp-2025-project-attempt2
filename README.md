@@ -4,7 +4,7 @@
 
 This [repository](https://github.com/urbanclimatefr/de-zoomcamp-2025-project-attempt2) hosts the source code and documentation for the 2025 project of the [Data Engineering Zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp)'s project for 2025.
 
-The README content is also accessible at  [https://github.com/urbanclimatefr/de-zoomcamp-2025-project](https://github.com/urbanclimatefr/de-zoomcamp-2025-project-attempt2)
+The README content is also accessible at  [https://github.com/urbanclimatefr/de-zoomcamp-2025-project-attempt2](https://github.com/urbanclimatefr/de-zoomcamp-2025-project-attempt2)
 
 <br>
 
