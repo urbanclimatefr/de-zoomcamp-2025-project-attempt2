@@ -149,6 +149,8 @@ with model sql file
 <img width="872" alt="image" src="https://github.com/user-attachments/assets/fb8b8308-5e58-4145-b6c3-80d259c2828b" />
 <img width="557" alt="image" src="https://github.com/user-attachments/assets/5a12b8c1-e2bd-4c1d-a11d-83cef69385c6" />
 
+dbt handles the data transformation including calculation of the [Hong Kong Heat index](https://www.hko.gov.hk/en/wxinfo/ts/display_element_hkhi.htm), based on temperature and humidity.
+
 
 This also performs dbt data quality checks after fetch_weather_data flow successfully ran
 
