@@ -14,7 +14,7 @@ with parameter_pivot as (
     record_time,
     max(case when parameter = 'temperature' then value end) as temperature_c,
     max(case when parameter = 'humidity' then value end) as humidity_percent
-  from {{ ref('raw_weather_parameters') }}
+  from kestra-de-zoomcamp-kenneth.zoomcamp.weather_data
   where parameter in ('temperature', 'humidity')
   group by place, record_time
 ),
