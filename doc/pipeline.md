@@ -94,7 +94,8 @@ This task uploads the transformed csv data output to the GCS bucket.
 
 **6. Create weather table** 
 
-<img width="510" alt="image" src="https://github.com/user-attachments/assets/65b020b2-51ba-457c-9ced-83b7dadd9913" />
+<img width="382" alt="image" src="https://github.com/user-attachments/assets/8e157db0-5896-4ed7-b363-4e0f8757218d" />
+
 
 This tasks creates weather table in Bigquery with the desired data schema.
 
