@@ -6,6 +6,19 @@ This [repository](https://github.com/urbanclimatefr/de-zoomcamp-2025-project-att
 
 The README content is also accessible at  [https://github.com/urbanclimatefr/de-zoomcamp-2025-project-attempt2](https://github.com/urbanclimatefr/de-zoomcamp-2025-project-attempt2)
 
+# Key changes from first attempt
+1. A 5 minute batch processing data pipeline with Kestra was implemented considering the suggestion from the feedback that a streaming data pipeline could be adopted with the real time API. However, it is challenging to build a real time streaming pipeline under limited time constraint.
+
+2. dbt transformation was included to handle the calculation of the Hong Kong Heat Index (inputs are temperature and humidity)
+
+3. A third page is added for the Hong Kong Heat Index.
+
+4. Explanation on clustering and partitioning strategy of the final destination table in Bigquery was added.
+
+
+
+
+
 <br>
 
 ## Goal
