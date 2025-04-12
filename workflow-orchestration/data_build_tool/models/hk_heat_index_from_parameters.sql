@@ -7,19 +7,17 @@
   )
 }}
 
--- First, pivot the parameter data into a structured format
 with parameter_pivot as (
   select
     place,
     record_time,
     max(case when parameter = 'temperature' then value end) as temperature_c,
     max(case when parameter = 'humidity' then value end) as humidity_percent
-  from kestra-de-zoomcamp-kenneth.zoomcamp.weather_data
+  from {{ source('raw', 'weather_data') }}
   where parameter in ('temperature', 'humidity')
   group by place, record_time
 ),
 
--- Join with nearby humidity data for locations missing humidity
 with_humidity as (
   select
     p.place,
@@ -29,14 +27,11 @@ with_humidity as (
              h.humidity_percent) as humidity_percent
   from parameter_pivot p
   left join parameter_pivot h 
-    on h.parameter = 'humidity'
-    and h.record_time = p.record_time
-    -- Join with Hong Kong Observatory humidity if local humidity missing
+    on h.record_time = p.record_time
     and h.place = 'Hong Kong Observatory'
-  where p.parameter = 'temperature'
+  where p.temperature_c is not null
 ),
 
--- Calculate thermal metrics
 thermal_calculations as (
   select
     place,
@@ -44,14 +39,14 @@ thermal_calculations as (
     temperature_c as dry_bulb_temp,
     humidity_percent,
     
-    -- Calculate natural wet bulb temperature using Stull's method
-    (temperature_c * atan(0.151977 * sqrt(humidity_percent + 8.313659))) 
+    -- Corrected wet bulb calculation (fixed parentheses)
+    (temperature_c * atan(0.151977 * sqrt(humidity_percent + 8.313659)) 
     + atan(temperature_c + humidity_percent) 
     - atan(humidity_percent - 1.676331) 
     + (0.00391838 * power(humidity_percent, 1.5) * atan(0.023101 * humidity_percent)) 
-    - 4.686035 as natural_wet_bulb_temp,
+    - 4.686035) as natural_wet_bulb_temp,
     
-    -- Estimate globe temperature (Tg) as temperature + 3°C in daylight hours
+    -- Globe temperature estimate
     case 
       when extract(hour from record_time) between 6 and 18 then temperature_c + 3
       else temperature_c + 1
@@ -59,7 +54,6 @@ thermal_calculations as (
   from with_humidity
 ),
 
--- Calculate Hong Kong Heat Index
 final_calculations as (
   select
     place,
@@ -75,7 +69,7 @@ final_calculations as (
     0.15 * dry_bulb_temp as hong_kong_heat_index,
     
     -- Create unique key
-    md5(place || record_time::text) as place_time_key
+    md5(concat(place, cast(record_time as string))) as place_time_key
   from thermal_calculations
 )
 
@@ -104,5 +98,4 @@ select
   end as heat_stress_warning,
   
   place_time_key
-  
 from final_calculations
